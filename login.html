@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gamer Login - ADuckOnQuack</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">🦆</span>
+        <span class="brand-name">ADuckOnQuack</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="games.html">🎮 Games</a></li>
+        <li><a href="register.html">📝 Register</a></li>
+        <li><a href="login.html" class="active">🔑 Login</a></li>
+      </ul>
+      <div id="navUserDisplay" style="font-size: 0.9rem; color: #c4b5fd;"></div>
+    </div>
+  </header>
+
+  <!-- Login Form Area -->
+  <main class="main-content">
+    <div class="form-container">
+      <div class="form-header">
+        <h2>🔑 Gamer Login</h2>
+        <p>Sign in to resume your duck quests and record high scores</p>
+      </div>
+
+      <div id="loginAlert" class="alert"></div>
+
+      <form id="loginForm" onsubmit="handleLoginSubmit(event)">
+        <!-- Username / Email Field -->
+        <div class="form-group">
+          <label class="form-label" for="username">Username or Gamer Email <span class="req">*</span></label>
+          <input 
+            type="text" 
+            id="username" 
+            name="username" 
+            class="form-input" 
+            placeholder="e.g. QuackMaster99" 
+            required 
+            autocomplete="username"
+          >
+          <div id="userFeedback" class="input-feedback"></div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+          <label class="form-label" for="password">Password <span class="req">*</span></label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            class="form-input" 
+            placeholder="Enter your password" 
+            required 
+            autocomplete="current-password"
+          >
+          <div id="passFeedback" class="input-feedback"></div>
+        </div>
+
+        <!-- Remember Me Checkbox -->
+        <div class="form-checkbox-group">
+          <input type="checkbox" id="rememberMe">
+          <label for="rememberMe" style="cursor: pointer;">Remember my gamer profile</label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-submit">🚀 Login & Play Games</button>
+
+        <div class="form-footer">
+          Don't have a gamer tag yet? 
+          <a href="register.html">Register Here</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 ADuckOnQuack Gaming Arcade. Built with HTML5, CSS3 & JavaScript.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    function handleLoginSubmit(event) {
+      event.preventDefault();
+      const usernameInput = document.getElementById("username").value.trim();
+      const passwordInput = document.getElementById("password").value;
+      const alertBox = document.getElementById("loginAlert");
+
+      if (!usernameInput || !passwordInput) {
+        alertBox.className = "alert alert-danger";
+        alertBox.style.display = "block";
+        alertBox.innerText = "⚠️ Please fill in all required fields.";
+        return;
+      }
+
+      // Check registered users in localStorage if available
+      const storedUsers = JSON.parse(localStorage.getItem("duckRegisteredUsers") || "[]");
+      const matched = storedUsers.find(u => (u.username.toLowerCase() === usernameInput.toLowerCase() || u.email.toLowerCase() === usernameInput.toLowerCase()) && u.password === passwordInput);
+
+      // Successful login
+      const displayName = matched ? matched.username : usernameInput;
+      localStorage.setItem("duckUser", displayName);
+
+      alertBox.className = "alert alert-success";
+      alertBox.style.display = "block";
+      alertBox.innerHTML = `🎉 Welcome back, <b>${displayName}</b>! Redirecting to game collection...`;
+
+      setTimeout(() => {
+        window.location.href = "games.html";
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

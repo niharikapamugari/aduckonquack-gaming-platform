@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalogue SYSTEM "games.dtd">
+<!-- =========================================================================
+     ADuckOnQuack Game Information XML Document
+     Validated by games.dtd
+     ========================================================================= -->
+<catalogue version="2.0">
+  <platform>
+    <name>ADuckOnQuack Arcade</name>
+    <website>https://aduckonquack.local</website>
+    <license>MIT Academic License</license>
+  </platform>
+
+  <game id="g101" category="Arcade">
+    <title>Target Shooter</title>
+    <genre>Reflex Arcade</genre>
+    <releaseYear>2026</releaseYear>
+    <rating>4.8</rating>
+    <developer>Duck Interactive Studios</developer>
+    <description>Fast-paced target shooting requiring high hand-eye coordination.</description>
+    <minPlayers>1</minPlayers>
+    <maxPlayers>1</maxPlayers>
+  </game>
+
+  <game id="g102" category="Puzzle">
+    <title>Puzzle Quest</title>
+    <genre>Memory &amp; Logic</genre>
+    <releaseYear>2026</releaseYear>
+    <rating>4.9</rating>
+    <developer>MindQuack Labs</developer>
+    <description>Tile-matching puzzle adventure with ancient mystical symbols.</description>
+    <minPlayers>1</minPlayers>
+    <maxPlayers>2</maxPlayers>
+  </game>
+
+  <game id="g103" category="Racing">
+    <title>Speed Racer</title>
+    <genre>Cyber Racing</genre>
+    <releaseYear>2026</releaseYear>
+    <rating>4.7</rating>
+    <developer>Velocity Duck Works</developer>
+    <description>High speed neon track racing dodging road hazards.</description>
+    <minPlayers>1</minPlayers>
+    <maxPlayers>1</maxPlayers>
+  </game>
+
+  <game id="g104" category="Action">
+    <title>Zombie Attack</title>
+    <genre>Tower Defense &amp; Clicker</genre>
+    <releaseYear>2026</releaseYear>
+    <rating>4.6</rating>
+    <developer>BioQuack Outbreak</developer>
+    <description>Fortress survival defense against oncoming zombie waves.</description>
+    <minPlayers>1</minPlayers>
+    <maxPlayers>1</maxPlayers>
+  </game>
+
+  <game id="g105" category="Sci-Fi">
+    <title>Space Adventure</title>
+    <genre>Space Arcade Shooter</genre>
+    <releaseYear>2026</releaseYear>
+    <rating>4.9</rating>
+    <developer>Cosmic Quack Team</developer>
+    <description>Navigate celestial asteroid belts and defend star systems.</description>
+    <minPlayers>1</minPlayers>
+    <maxPlayers>2</maxPlayers>
+  </game>
+
+  <game id="g106" category="RPG">
+    <title>Castle Quest</title>
+    <genre>Dungeon RPG Quest</genre>
+    <releaseYear>2026</releaseYear>
+    <rating>4.8</rating>
+    <developer>Mythic Quack Games</developer>
+    <description>Retro dungeon exploration, collect gems and unlock ancient gates.</description>
+    <minPlayers>1</minPlayers>
+    <maxPlayers>1</maxPlayers>
+  </game>
+</catalogue>

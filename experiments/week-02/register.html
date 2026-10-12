@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 2: Student Registration Page - ADuckOnQuack</title>
+</head>
+<body>
+  <!-- =========================================================================
+       LAB EXPERIMENT 2: Student Registration Page
+       Aim: Create the student Registration Page using HTML forms with basic input validations.
+       ========================================================================= -->
+  <header>
+    <h1>🦆 ADuckOnQuack Web Arcade</h1>
+    <nav>
+      <a href="../week-01/home.html">Week 1: Home</a> |
+      <a href="../week-01/login.html">Week 1: Login</a> |
+      <a href="register.html"><strong>Week 2: Registration</strong></a> |
+      <a href="../week-03/index.html">Week 3: CSS Demo</a> |
+      <a href="../index.html">← Back to Lab Portal</a>
+    </nav>
+  </header>
+
+  <hr>
+
+  <main>
+    <h2>Student / Gamer Registration Form</h2>
+    <p>
+      This registration page utilizes native HTML5 input attributes for basic input validations:
+      <code>required</code>, <code>pattern</code>, <code>minlength</code>, <code>maxlength</code>, 
+      <code>type="email"</code>, <code>type="tel"</code>, and <code>type="date"</code>.
+    </p>
+
+    <form action="../week-01/login.html" method="post">
+      <fieldset>
+        <legend>Personal & Student Details</legend>
+
+        <p>
+          <label for="fullName">Full Name:*</label><br>
+          <input 
+            type="text" 
+            id="fullName" 
+            name="fullName" 
+            placeholder="John Doe" 
+            pattern="[A-Za-z\s]{3,40}" 
+            title="Name must contain only letters and spaces (min 3 characters)" 
+            required
+          >
+        </p>
+
+        <p>
+          <label for="email">Gamer Email:*</label><br>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="student@college.edu" 
+            required
+          >
+        </p>
+
+        <p>
+          <label for="phone">Phone Number:*</label><br>
+          <input 
+            type="tel" 
+            id="phone" 
+            name="phone" 
+            placeholder="9876543210" 
+            pattern="[0-9]{10}" 
+            maxlength="10" 
+            title="Please enter a 10-digit mobile number" 
+            required
+          >
+        </p>
+
+        <p>
+          <label for="dob">Date of Birth:*</label><br>
+          <input 
+            type="date" 
+            id="dob" 
+            name="dob" 
+            required
+          >
+        </p>
+
+        <p>
+          <label>Gender:*</label><br>
+          <input type="radio" id="male" name="gender" value="Male" required>
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="Female">
+          <label for="female">Female</label>
+          <input type="radio" id="other" name="gender" value="Other">
+          <label for="other">Other</label>
+        </p>
+      </fieldset>
+
+      <br>
+
+      <fieldset>
+        <legend>Academic Department & Gaming Profile</legend>
+
+        <p>
+          <label for="department">Department / Branch:*</label><br>
+          <select id="department" name="department" required>
+            <option value="">-- Select Department --</option>
+            <option value="CSE">Computer Science & Engineering</option>
+            <option value="IT">Information Technology</option>
+            <option value="AI_DS">AI & Data Science</option>
+            <option value="ECE">Electronics & Communication</option>
+            <option value="MECH">Mechanical Engineering</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="gamerTag">Preferred Gamer Tag / Username:*</label><br>
+          <input 
+            type="text" 
+            id="gamerTag" 
+            name="gamerTag" 
+            placeholder="DuckMaster" 
+            minlength="4" 
+            maxlength="16" 
+            required
+          >
+        </p>
+
+        <p>
+          <label for="gameCategory">Preferred Game Genre:*</label><br>
+          <select id="gameCategory" name="gameCategory" required>
+            <option value="">-- Select Favorite Genre --</option>
+            <option value="Arcade">Arcade (Target Shooter)</option>
+            <option value="Puzzle">Puzzle (Puzzle Quest)</option>
+            <option value="Racing">Racing (Speed Racer)</option>
+            <option value="Action">Action (Zombie Attack)</option>
+            <option value="Sci-Fi">Sci-Fi (Space Adventure)</option>
+            <option value="RPG">Adventure (Castle Quest)</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="password">Account Password:*</label><br>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            minlength="6" 
+            placeholder="Minimum 6 characters" 
+            required
+          >
+        </p>
+      </fieldset>
+
+      <br>
+
+      <p>
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I verify that the above information is correct and agree to the rules.*</label>
+      </p>
+
+      <p>
+        <input type="submit" value="Submit Registration">
+        <input type="reset" value="Clear Form">
+      </p>
+    </form>
+  </main>
+
+  <hr>
+
+  <footer>
+    <p>&copy; 2026 ADuckOnQuack. Enterprise Web Programming - Week 2 Experiment.</p>
+  </footer>
+</body>
+</html>

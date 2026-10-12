@@ -1,0 +1,26 @@
+<!-- =========================================================================
+     Document Type Definition (DTD) for ADuckOnQuack Game Catalogue
+     File: games.dtd
+     Validates: games.xml
+     ========================================================================= -->
+
+<!ELEMENT catalogue (platform, game+)>
+<!ATTLIST catalogue version CDATA #REQUIRED>
+
+<!ELEMENT platform (name, website, license)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT website (#PCDATA)>
+<!ELEMENT license (#PCDATA)>
+
+<!ELEMENT game (title, genre, releaseYear, rating, developer, description, minPlayers, maxPlayers)>
+<!ATTLIST game id ID #REQUIRED>
+<!ATTLIST game category (Arcade|Puzzle|Racing|Action|Sci-Fi|RPG) #REQUIRED>
+
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT genre (#PCDATA)>
+<!ELEMENT releaseYear (#PCDATA)>
+<!ELEMENT rating (#PCDATA)>
+<!ELEMENT developer (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT minPlayers (#PCDATA)>
+<!ELEMENT maxPlayers (#PCDATA)>

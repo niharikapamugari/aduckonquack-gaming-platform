@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 11: TypeScript Classes & Interfaces - ADuckOnQuack</title>
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    .ts-code-view {
+      background: #090417;
+      border: 1.5px solid #a855f7;
+      border-radius: 12px;
+      padding: 18px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 0.88rem;
+      color: #e9d5ff;
+      white-space: pre-wrap;
+      max-height: 400px;
+      overflow-y: auto;
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../../index.html" class="brand">
+        <span class="brand-icon">🦆</span>
+        <span class="brand-name">ADuckOnQuack (Week 11)</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../week-09/index.html">Week 9</a></li>
+        <li><a href="../week-10/index.html">Week 10</a></li>
+        <li><a href="index.html" class="active">Week 11: TypeScript</a></li>
+        <li><a href="../week-12/index.html">Week 12: Angular</a></li>
+        <li><a href="../week-13-14/index.html">Week 13-14: Angular SPA</a></li>
+        <li><a href="../index.html" class="lab-banner-link">← Lab Portal</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="page-header">
+      <h1 class="page-title">🔷 Week 11: TypeScript Classes, Interfaces & Functions</h1>
+      <p class="page-subtitle">Strongly typed object-oriented architecture modeling games, players, repositories, and calculation logic</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:25px; max-width:1200px; margin:0 auto;">
+      <!-- Left: TS Source View -->
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <h3 style="color:#c084fc;">TypeScript Source (<a href="game_system.ts" download style="color:#38bdf8;">game_system.ts</a>)</h3>
+          <span class="game-badge" style="background:#2563eb; color:#fff;">TypeScript 5.x</span>
+        </div>
+        <div class="ts-code-view">
+// Interfaces & Enums
+export enum GameGenre { ARCADE, PUZZLE, RACING... }
+
+export interface IGame {
+  readonly id: string;
+  title: string;
+  genre: GameGenre;
+  calculateScore(base: number, mult: number): number;
+}
+
+export interface IPlayer {
+  username: string;
+  studentId: string;
+  level: number;
+  totalScore: number;
+  addScore(points: number): void;
+}
+
+// Abstract & Concrete Classes
+export abstract class BaseGame implements IGame {
+  constructor(
+    public readonly id: string,
+    public title: string,
+    public genre: GameGenre
+  ) {}
+  public abstract calculateScore(base: number, mult: number): number;
+}
+
+export class ArcadeGame extends BaseGame {
+  public calculateScore(base: number, mult: number): number {
+    return Math.round(base * mult * 1.5);
+  }
+}
+
+// Generics & Functions
+export class GameRepository&lt;T extends { id: string }&gt; {
+  private items: Map&lt;string, T&gt; = new Map();
+  public add(item: T): void { this.items.set(item.id, item); }
+}
+
+export function filterGamesByRating(games: IGame[], min: number): IGame[] {
+  return games.filter(g => g.rating >= min);
+}</div>
+      </div>
+
+      <!-- Right: Live Runtime Execution -->
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <h3 style="color:#c084fc;">Live Execution Output</h3>
+          <button class="btn-play" style="padding:6px 14px; font-size:0.85rem;" onclick="runTypeScriptDemo()">▶ Re-run Logic</button>
+        </div>
+        <div class="ts-code-view" id="tsConsole" style="color:#34d399;">Running TypeScript code...</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 ADuckOnQuack. Enterprise Web Programming - Week 11 Experiment.</p>
+  </footer>
+
+  <script src="game_system.js"></script>
+</body>
+</html>

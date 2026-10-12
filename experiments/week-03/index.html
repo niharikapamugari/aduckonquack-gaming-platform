@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 3: CSS Demonstration (Internal, External, Inline) - ADuckOnQuack</title>
+
+  <!-- 1. EXTERNAL CSS -->
+  <link rel="stylesheet" href="external-style.css">
+
+  <!-- 2. INTERNAL CSS -->
+  <style>
+    /* Internal CSS styles defined within <style> block */
+    .internal-section {
+      background: linear-gradient(180deg, #180e38 0%, #100829 100%);
+      border: 1.5px solid #a855f7;
+      border-radius: 14px;
+      padding: 24px;
+      margin: 20px 0;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+    }
+
+    .internal-title {
+      color: #e9d5ff;
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      text-shadow: 0 0 10px #c084fc;
+    }
+
+    .css-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .badge-external {
+      background: #3b82f6;
+      color: #ffffff;
+    }
+
+    .badge-internal {
+      background: #a855f7;
+      color: #ffffff;
+    }
+
+    .badge-inline {
+      background: #f59e0b;
+      color: #ffffff;
+    }
+
+    .form-row {
+      margin-bottom: 14px;
+    }
+
+    .internal-input {
+      width: 100%;
+      max-width: 380px;
+      padding: 8px 12px;
+      background: #0b061d;
+      border: 1px solid #7c3aed;
+      border-radius: 6px;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- External CSS applied to header -->
+  <header class="external-header">
+    <div style="font-size: 1.5rem; font-weight: bold; color: #f3e8ff;">🦆 ADuckOnQuack (CSS Demo)</div>
+    <nav class="external-nav">
+      <a href="../week-01/home.html">Week 1</a>
+      <a href="../week-02/register.html">Week 2</a>
+      <a href="index.html"><strong>Week 3</strong></a>
+      <a href="../week-04/index.html">Week 4</a>
+      <a href="../index.html">← Lab Portal</a>
+    </nav>
+  </header>
+
+  <main style="max-width: 1000px; margin: 0 auto; padding-top: 20px;">
+    <h2>Lab Experiment 3: Internal, External, and Inline CSS</h2>
+    <p>
+      This page demonstrates the 3 distinct methods of applying CSS rules across Week 1 (Home, Login) 
+      and Week 2 (Registration) UI components:
+    </p>
+
+    <!-- DEMONSTRATION 1: EXTERNAL CSS -->
+    <div class="external-card">
+      <span class="css-badge badge-external">1. External CSS Demo (external-style.css)</span>
+      <h3>Home Page Card Styled via External CSS</h3>
+      <p>
+        The container border, card background, fonts, and button hover states are loaded from 
+        <code>&lt;link rel="stylesheet" href="external-style.css"&gt;</code>.
+      </p>
+      <button class="external-button">🎮 Launch Arcade (External Style)</button>
+    </div>
+
+    <!-- DEMONSTRATION 2: INTERNAL CSS -->
+    <div class="internal-section">
+      <span class="css-badge badge-internal">2. Internal CSS Demo (&lt;style&gt; block)</span>
+      <h3 class="internal-title">Login Page Component Styled via Internal CSS</h3>
+      <p>
+        Rules for <code>.internal-section</code>, <code>.internal-title</code>, and glowing neon borders 
+        are authored in the document head inside <code>&lt;style&gt;</code>.
+      </p>
+
+      <form>
+        <div class="form-row">
+          <label for="intUser" style="display: block; margin-bottom: 4px; color: #c4b5fd;">Gamer Username:</label>
+          <input type="text" id="intUser" class="internal-input" placeholder="e.g. QuackLord">
+        </div>
+        <div class="form-row">
+          <label for="intPass" style="display: block; margin-bottom: 4px; color: #c4b5fd;">Password:</label>
+          <input type="password" id="intPass" class="internal-input" placeholder="••••••••">
+        </div>
+        <button type="button" class="external-button" style="background: #9333ea;">Log In (Internal Styled)</button>
+      </form>
+    </div>
+
+    <!-- DEMONSTRATION 3: INLINE CSS -->
+    <div style="background-color: #1f1245; border: 2px dashed #f59e0b; border-radius: 14px; padding: 22px; margin: 20px 0; box-shadow: 0 0 16px rgba(245, 158, 11, 0.25);">
+      <span class="css-badge badge-inline">3. Inline CSS Demo (style attribute)</span>
+      <h3 style="color: #fbbf24; margin-top: 6px; font-size: 1.5rem; text-shadow: 0 0 8px #f59e0b;">
+        Student Registration Alert Styled via Inline CSS
+      </h3>
+      <p style="color: #fef3c7; line-height: 1.6; font-size: 0.95rem;">
+        This container directly uses HTML attribute <code style="background: #331e5f; padding: 2px 6px; border-radius: 4px; color: #fde68a;">style="background-color: #1f1245; border: 2px dashed #f59e0b; ..."</code> 
+        to exhibit highest CSS specificity precedence over document-level styles.
+      </p>
+      <div style="display: flex; gap: 12px; margin-top: 15px;">
+        <span style="background: #361a6b; color: #fde68a; padding: 6px 12px; border-radius: 6px; border: 1px solid #f59e0b;">
+          Priority: Inline > Internal > External > Browser Default
+        </span>
+      </div>
+    </div>
+  </main>
+
+  <footer style="margin-top: 40px; text-align: center; color: #8b5cf6; border-top: 1px solid #3b176d; padding-top: 15px;">
+    <p>&copy; 2026 ADuckOnQuack. Enterprise Web Programming - Week 3 Experiment.</p>
+  </footer>
+</body>
+</html>

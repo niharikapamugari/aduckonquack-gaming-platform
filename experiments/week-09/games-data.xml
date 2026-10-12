@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collection platform="ADuckOnQuack Arcade" total="6">
+  <game id="g-01">
+    <title>Target Shooter</title>
+    <icon>🎯</icon>
+    <category>Arcade</category>
+    <rating>4.8</rating>
+    <releaseYear>2026</releaseYear>
+    <developer>Duck Studios</developer>
+  </game>
+  <game id="g-02">
+    <title>Puzzle Quest</title>
+    <icon>🧩</icon>
+    <category>Puzzle</category>
+    <rating>4.9</rating>
+    <releaseYear>2026</releaseYear>
+    <developer>MindQuack</developer>
+  </game>
+  <game id="g-03">
+    <title>Speed Racer</title>
+    <icon>🏎️</icon>
+    <category>Racing</category>
+    <rating>4.7</rating>
+    <releaseYear>2026</releaseYear>
+    <developer>Velocity Duck</developer>
+  </game>
+  <game id="g-04">
+    <title>Zombie Attack</title>
+    <icon>🧟</icon>
+    <category>Action</category>
+    <rating>4.6</rating>
+    <releaseYear>2026</releaseYear>
+    <developer>BioQuack</developer>
+  </game>
+  <game id="g-05">
+    <title>Space Adventure</title>
+    <icon>🚀</icon>
+    <category>Sci-Fi</category>
+    <rating>4.9</rating>
+    <releaseYear>2026</releaseYear>
+    <developer>Cosmic Quack</developer>
+  </game>
+  <game id="g-06">
+    <title>Castle Quest</title>
+    <icon>🏰</icon>
+    <category>RPG</category>
+    <rating>4.8</rating>
+    <releaseYear>2026</releaseYear>
+    <developer>Mythic Duck</developer>
+  </game>
+</collection>

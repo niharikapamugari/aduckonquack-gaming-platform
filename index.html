@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADuckOnQuack - Ultimate Multi-Gaming Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">🦆</span>
+        <span class="brand-name">ADuckOnQuack</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">🏠 Home</a></li>
+        <li><a href="games.html">🎮 Games</a></li>
+        <li><a href="register.html">📝 Register</a></li>
+        <li><a href="login.html">🔑 Login</a></li>
+      </ul>
+      <div id="navUserDisplay" style="font-size: 0.9rem; color: #c4b5fd;"></div>
+    </div>
+  </header>
+
+  <!-- Main Hero Area -->
+  <main class="main-content">
+    <section class="hero-section">
+      <div class="hero-badge">🦆 Next-Gen Web Gaming Platform</div>
+      <h1 class="hero-title">Welcome to ADuckOnQuack</h1>
+      <p class="hero-desc">
+        Dive into an exciting collection of retro arcade, puzzle, racing, action, and sci-fi games directly inside your browser. Built with modern web technologies for high performance, smooth controls, and instant fun.
+      </p>
+      <div class="hero-actions">
+        <a href="games.html" class="btn-primary">🎮 Explore Duck Game Collection</a>
+        <a href="register.html" class="btn-secondary">📝 Create Gamer Account</a>
+        <a href="login.html" class="btn-secondary">🔑 Gamer Login</a>
+      </div>
+    </section>
+
+    <!-- Quick Preview of Game Collection -->
+    <div class="page-header" style="margin-top: 20px;">
+      <h2 class="page-title" style="font-size: 2rem;">🔥 Featured Games</h2>
+      <p class="page-subtitle">Instant play with high-score tracking and smooth animations</p>
+    </div>
+
+    <!-- Quick 5 Games Grid -->
+    <div class="games-grid">
+      <div class="game-card">
+        <div class="game-title-wrapper">
+          <span class="game-icon">🎯</span>
+          <span>Target Shooter</span>
+        </div>
+        <button class="btn-play" onclick="launchGame('target-shooter')">Play Game</button>
+      </div>
+
+      <div class="game-card">
+        <div class="game-title-wrapper">
+          <span class="game-icon">🧩</span>
+          <span>Puzzle Quest</span>
+        </div>
+        <button class="btn-play" onclick="launchGame('puzzle-quest')">Play Game</button>
+      </div>
+
+      <div class="game-card">
+        <div class="game-title-wrapper">
+          <span class="game-icon">🏎️</span>
+          <span>Speed Racer</span>
+        </div>
+        <button class="btn-play" onclick="launchGame('speed-racer')">Play Game</button>
+      </div>
+
+      <div class="game-card">
+        <div class="game-title-wrapper">
+          <span class="game-icon">🧟</span>
+          <span>Zombie Attack</span>
+        </div>
+        <button class="btn-play" onclick="launchGame('zombie-attack')">Play Game</button>
+      </div>
+
+      <div class="game-card">
+        <div class="game-title-wrapper">
+          <span class="game-icon">🚀</span>
+          <span>Space Adventure</span>
+        </div>
+        <button class="btn-play" onclick="launchGame('space-adventure')">Play Game</button>
+      </div>
+    </div>
+
+    <div class="games-grid-bottom">
+      <div class="game-card">
+        <div class="game-title-wrapper">
+          <span class="game-icon">🏰</span>
+          <span>Castle Quest</span>
+        </div>
+        <button class="btn-play" onclick="launchGame('castle-quest')">Play Game</button>
+      </div>
+    </div>
+
+    <!-- Platform Features -->
+    <div class="features-grid">
+      <div class="feature-box">
+        <div class="feature-icon">⚡</div>
+        <h3>Zero Installation</h3>
+        <p>Instant loading with pure HTML5, CSS3, JavaScript, TypeScript, and modern Angular architecture.</p>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon">🛡️</div>
+        <h3>Secure Gamer Profiles</h3>
+        <p>Client-side form validations, regex checks, and safe local authentication storage.</p>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon">🎮</div>
+        <h3>Multi-Gaming Arcade</h3>
+        <p>Exciting arcade, puzzle, racer, defense, space, and RPG quests playable instantly in any browser.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Interactive Playable Game Modal -->
+  <div class="modal-overlay" id="gameModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title" id="modalGameTitle">🎮 Game Title</div>
+        <button class="modal-close" onclick="closeGameModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalGameBody"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 ADuckOnQuack Gaming Arcade. Built with HTML5, CSS3 & JavaScript.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

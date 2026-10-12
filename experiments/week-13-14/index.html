@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AngularApp</title>
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    /* Browser Mockup Header Indicator */
+    .spa-badge-strip {
+      background: #190938;
+      border-bottom: 1px solid #7c3aed;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      color: #c4b5fd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Angular SPA Top Indicator -->
+  <div class="spa-badge-strip">
+    <span>🅰️ Angular Single-Page Application (Week 13-14) | Simulated <b>localhost:4200/games</b></span>
+    <div id="spaUserBadge">Loading user state...</div>
+  </div>
+
+  <!-- Main Navbar with Angular routerLink bindings -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#/home" class="brand">
+        <span class="brand-icon">🦆</span>
+        <span class="brand-name">ADuckOnQuack</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#/home" class="spa-nav-link">🏠 Home</a></li>
+        <li><a href="#/games" class="spa-nav-link active">🎮 Games</a></li>
+        <li><a href="#/register" class="spa-nav-link">📝 Register</a></li>
+        <li><a href="#/login" class="spa-nav-link">🔑 Login</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Angular Router Outlet where components render dynamically -->
+  <main class="main-content" id="router-outlet">
+    <!-- Rendered dynamically by AngularRouter -->
+  </main>
+
+  <!-- Interactive Playable Game Modal -->
+  <div class="modal-overlay" id="gameModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title" id="modalGameTitle">🎮 Game Title</div>
+        <button class="modal-close" onclick="closeGameModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalGameBody"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 ADuckOnQuack. Enterprise Web Programming - Week 13-14 Single-Page Application.</p>
+  </footer>
+
+  <script src="../../app.js"></script>
+  <script src="app.module.js"></script>
+</body>
+</html>

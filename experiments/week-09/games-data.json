@@ -1,0 +1,74 @@
+{
+  "platform": "ADuckOnQuack Arcade",
+  "generatedAt": "2026-10-12",
+  "version": "2.4.0",
+  "totalGames": 6,
+  "games": [
+    {
+      "id": "g-01",
+      "title": "Target Shooter",
+      "icon": "🎯",
+      "category": "Arcade",
+      "rating": 4.8,
+      "releaseYear": 2026,
+      "multiplayer": false,
+      "developer": "Duck Studios",
+      "tags": ["Shooter", "Reflex", "Score"]
+    },
+    {
+      "id": "g-02",
+      "title": "Puzzle Quest",
+      "icon": "🧩",
+      "category": "Puzzle",
+      "rating": 4.9,
+      "releaseYear": 2026,
+      "multiplayer": true,
+      "developer": "MindQuack",
+      "tags": ["Memory", "Logic", "Strategy"]
+    },
+    {
+      "id": "g-03",
+      "title": "Speed Racer",
+      "icon": "🏎️",
+      "category": "Racing",
+      "rating": 4.7,
+      "releaseYear": 2026,
+      "multiplayer": false,
+      "developer": "Velocity Duck",
+      "tags": ["Retro", "Arcade", "Obstacles"]
+    },
+    {
+      "id": "g-04",
+      "title": "Zombie Attack",
+      "icon": "🧟",
+      "category": "Action",
+      "rating": 4.6,
+      "releaseYear": 2026,
+      "multiplayer": false,
+      "developer": "BioQuack",
+      "tags": ["Defense", "Clicker", "Zombies"]
+    },
+    {
+      "id": "g-05",
+      "title": "Space Adventure",
+      "icon": "🚀",
+      "category": "Sci-Fi",
+      "rating": 4.9,
+      "releaseYear": 2026,
+      "multiplayer": true,
+      "developer": "Cosmic Quack",
+      "tags": ["Space", "Shooter", "Action"]
+    },
+    {
+      "id": "g-06",
+      "title": "Castle Quest",
+      "icon": "🏰",
+      "category": "RPG",
+      "rating": 4.8,
+      "releaseYear": 2026,
+      "multiplayer": false,
+      "developer": "Mythic Duck",
+      "tags": ["Dungeon", "Coins", "Adventure"]
+    }
+  ]
+}

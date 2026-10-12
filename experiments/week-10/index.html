@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 10: Ajax / Fetch POST Submission - ADuckOnQuack</title>
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    .post-console {
+      background: #080314;
+      border: 1.5px solid #a855f7;
+      border-radius: 12px;
+      padding: 18px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 0.9rem;
+      color: #e9d5ff;
+      white-space: pre-wrap;
+      max-height: 400px;
+      overflow-y: auto;
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../../index.html" class="brand">
+        <span class="brand-icon">🦆</span>
+        <span class="brand-name">ADuckOnQuack (Week 10)</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../week-08/index.html">Week 8</a></li>
+        <li><a href="../week-09/index.html">Week 9</a></li>
+        <li><a href="index.html" class="active">Week 10: Fetch POST</a></li>
+        <li><a href="../week-11/index.html">Week 11: TypeScript</a></li>
+        <li><a href="../week-12/index.html">Week 12: Angular</a></li>
+        <li><a href="../index.html" class="lab-banner-link">← Lab Portal</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="page-header">
+      <h1 class="page-title">📤 Week 10: HTTP POST Asynchronous Submission</h1>
+      <p class="page-subtitle">Transmit serialized JSON game score and review payloads using Fetch API POST method</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1100px; margin: 0 auto;">
+      <!-- Left Column: Form -->
+      <div class="form-container" style="margin: 0; max-width: 100%;">
+        <h2 style="color: #ffffff; font-size: 1.4rem; margin-bottom: 16px;">🎮 Submit Game High Score</h2>
+
+        <form onsubmit="sendScorePostRequest(event)">
+          <div class="form-group">
+            <label class="form-label" for="pName">Player Gamer Tag <span class="req">*</span></label>
+            <input type="text" id="pName" class="form-input" placeholder="e.g. QuackSniper" required value="GamerDuck42">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="pGame">Game Played <span class="req">*</span></label>
+            <select id="pGame" class="form-select" required>
+              <option value="Target Shooter">🎯 Target Shooter</option>
+              <option value="Puzzle Quest">🧩 Puzzle Quest</option>
+              <option value="Speed Racer">🏎️ Speed Racer</option>
+              <option value="Zombie Attack">🧟 Zombie Attack</option>
+              <option value="Space Adventure">🚀 Space Adventure</option>
+              <option value="Castle Quest">🏰 Castle Quest</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="pScore">Achieved Score <span class="req">*</span></label>
+            <input type="number" id="pScore" class="form-input" placeholder="e.g. 850" min="1" max="99999" required value="480">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="pNotes">Player Review / Feedback Notes</label>
+            <input type="text" id="pNotes" class="form-input" placeholder="Awesome neon arcade gameplay!" value="Fast reflex challenge, loved it!">
+          </div>
+
+          <button type="submit" class="btn-submit">🚀 Dispatch HTTP POST Request</button>
+        </form>
+      </div>
+
+      <!-- Right Column: Live Console & Leaderboard -->
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <h3 style="color:#c084fc;">Response & Network Inspector</h3>
+          <span id="postStatusBadge" class="game-badge" style="background:#6b7280; font-size:0.85rem; padding:4px 10px;">Idle</span>
+        </div>
+
+        <div class="post-console" id="postConsole">Submit the form on the left to observe HTTP POST headers, serialized JSON payload, and server response.</div>
+
+        <h3 style="color:#c084fc; margin-top:24px; margin-bottom:10px;">🏆 Recent Recorded High Scores</h3>
+        <table style="width:100%; border-collapse:collapse; background:#140b30; border-radius:10px; overflow:hidden; border:1px solid #7c3aed;">
+          <thead>
+            <tr style="background:#1e0e47; color:#c084fc; text-align:left;">
+              <th style="padding:8px 10px;">Rank</th>
+              <th style="padding:8px 10px;">Player</th>
+              <th style="padding:8px 10px;">Game</th>
+              <th style="padding:8px 10px;">Score</th>
+            </tr>
+          </thead>
+          <tbody id="recentScoresTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 ADuckOnQuack. Enterprise Web Programming - Week 10 Experiment.</p>
+  </footer>
+
+  <script src="ajax-post.js"></script>
+</body>
+</html>

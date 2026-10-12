@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 6: XML & DTD Game Data Viewer - ADuckOnQuack</title>
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    .xml-code-box {
+      background: #090417;
+      border: 1.5px solid #a855f7;
+      border-radius: 12px;
+      padding: 20px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 0.9rem;
+      color: #e9d5ff;
+      white-space: pre-wrap;
+      overflow-x: auto;
+      margin-bottom: 25px;
+      max-height: 380px;
+      overflow-y: auto;
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+    }
+    .tag { color: #f472b6; }
+    .attr { color: #38bdf8; }
+    .val { color: #34d399; }
+    .text { color: #f3e8ff; }
+    .dtd-kw { color: #fbbf24; font-weight: bold; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      background: #140b30;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #7c3aed;
+    }
+
+    .data-table th, .data-table td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid #281452;
+    }
+
+    .data-table th {
+      background: #1e0e47;
+      color: #c084fc;
+      font-weight: 600;
+    }
+
+    .data-table tr:hover {
+      background: #1b103f;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../../index.html" class="brand">
+        <span class="brand-icon">🦆</span>
+        <span class="brand-name">ADuckOnQuack (Week 6)</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../week-05/index.html">Week 5</a></li>
+        <li><a href="viewer.html" class="active">Week 6: XML & DTD</a></li>
+        <li><a href="../week-07/index.html">Week 7: Skill Test</a></li>
+        <li><a href="../week-08/index.html">Week 8</a></li>
+        <li><a href="../index.html" class="lab-banner-link">← Lab Portal</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="page-header">
+      <h1 class="page-title">📄 Week 6: XML & DTD Data Validation</h1>
+      <p class="page-subtitle">Displaying Game Catalogue in XML validated by Document Type Definition (DTD)</p>
+    </div>
+
+    <!-- Section 1: DTD Source View -->
+    <div style="margin-bottom: 30px;">
+      <h2 style="color: #c084fc; margin-bottom: 10px;">1. Document Type Definition (<a href="games.dtd" download style="color:#38bdf8;">games.dtd</a>)</h2>
+      <div class="xml-code-box">
+<span class="dtd-kw">&lt;!ELEMENT</span> catalogue (platform, game+)&gt;
+<span class="dtd-kw">&lt;!ATTLIST</span> catalogue version CDATA #REQUIRED&gt;
+
+<span class="dtd-kw">&lt;!ELEMENT</span> platform (name, website, license)&gt;
+<span class="dtd-kw">&lt;!ELEMENT</span> name (#PCDATA)&gt;
+<span class="dtd-kw">&lt;!ELEMENT</span> website (#PCDATA)&gt;
+<span class="dtd-kw">&lt;!ELEMENT</span> license (#PCDATA)&gt;
+
+<span class="dtd-kw">&lt;!ELEMENT</span> game (title, genre, releaseYear, rating, developer, description, minPlayers, maxPlayers)&gt;
+<span class="dtd-kw">&lt;!ATTLIST</span> game id ID #REQUIRED&gt;
+<span class="dtd-kw">&lt;!ATTLIST</span> game category (Arcade|Puzzle|Racing|Action|Sci-Fi|RPG) #REQUIRED&gt;
+
+<span class="dtd-kw">&lt;!ELEMENT</span> title (#PCDATA)&gt;
+<span class="dtd-kw">&lt;!ELEMENT</span> genre (#PCDATA)&gt;
+<span class="dtd-kw">&lt;!ELEMENT</span> releaseYear (#PCDATA)&gt;
+<span class="dtd-kw">&lt;!ELEMENT</span> rating (#PCDATA)&gt;
+<span class="dtd-kw">&lt;!ELEMENT</span> developer (#PCDATA)&gt;
+<span class="dtd-kw">&lt;!ELEMENT</span> description (#PCDATA)&gt;
+<span class="dtd-kw">&lt;!ELEMENT</span> minPlayers (#PCDATA)&gt;
+<span class="dtd-kw">&lt;!ELEMENT</span> maxPlayers (#PCDATA)&gt;</div>
+    </div>
+
+    <!-- Section 2: Parsed Table from games.xml -->
+    <div style="margin-bottom: 30px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h2 style="color: #c084fc;">2. Parsed XML Table View (DOMParser)</h2>
+        <span class="game-badge" style="background:#10b981; color:#ffffff;">✓ DTD Schema Valid</span>
+      </div>
+      <table class="data-table" id="xmlTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Genre</th>
+            <th>Year</th>
+            <th>Rating</th>
+            <th>Developer</th>
+            <th>Players</th>
+          </tr>
+        </thead>
+        <tbody id="xmlTableBody">
+          <tr><td colspan="8" style="text-align:center;">Parsing games.xml...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Section 3: XML Raw Content Preview -->
+    <div>
+      <h2 style="color: #c084fc; margin-bottom: 10px;">3. XML Raw Source (<a href="games.xml" target="_blank" style="color:#38bdf8;">games.xml</a>)</h2>
+      <div class="xml-code-box" id="rawXmlBox">Loading raw XML document...</div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 ADuckOnQuack. Enterprise Web Programming - Week 6 Experiment.</p>
+  </footer>
+
+  <script>
+    // Fetch and Parse games.xml using browser DOMParser
+    fetch("games.xml")
+      .then(res => res.text())
+      .then(xmlString => {
+        // Display Raw XML
+        document.getElementById("rawXmlBox").innerText = xmlString;
+
+        // Parse with DOMParser
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+        const games = xmlDoc.getElementsByTagName("game");
+        const tbody = document.getElementById("xmlTableBody");
+        tbody.innerHTML = "";
+
+        for (let i = 0; i < games.length; i++) {
+          const g = games[i];
+          const id = g.getAttribute("id");
+          const category = g.getAttribute("category");
+          const title = g.getElementsByTagName("title")[0]?.textContent;
+          const genre = g.getElementsByTagName("genre")[0]?.textContent;
+          const year = g.getElementsByTagName("releaseYear")[0]?.textContent;
+          const rating = g.getElementsByTagName("rating")[0]?.textContent;
+          const dev = g.getElementsByTagName("developer")[0]?.textContent;
+          const minP = g.getElementsByTagName("minPlayers")[0]?.textContent;
+          const maxP = g.getElementsByTagName("maxPlayers")[0]?.textContent;
+
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td><code>${id}</code></td>
+            <td style="font-weight:600; color:#ffffff;">${title}</td>
+            <td><span class="game-badge">${category}</span></td>
+            <td>${genre}</td>
+            <td>${year}</td>
+            <td style="color:#fbbf24;">★ ${rating}</td>
+            <td>${dev}</td>
+            <td>${minP} - ${maxP}</td>
+          `;
+          tbody.appendChild(row);
+        }
+      })
+      .catch(err => {
+        document.getElementById("xmlTableBody").innerHTML = `<tr><td colspan="8" style="color:#ef4444;">Error loading XML: ${err.message}</td></tr>`;
+      });
+  </script>
+</body>
+</html>

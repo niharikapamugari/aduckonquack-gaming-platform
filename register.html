@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gamer Registration - ADuckOnQuack</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">🦆</span>
+        <span class="brand-name">ADuckOnQuack</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="games.html">🎮 Games</a></li>
+        <li><a href="register.html" class="active">📝 Register</a></li>
+        <li><a href="login.html">🔑 Login</a></li>
+      </ul>
+      <div id="navUserDisplay" style="font-size: 0.9rem; color: #c4b5fd;"></div>
+    </div>
+  </header>
+
+  <!-- Registration Form Area -->
+  <main class="main-content">
+    <div class="form-container" style="max-width: 600px;">
+      <div class="form-header">
+        <h2>📝 Gamer Registration</h2>
+        <p>Create your Duck Gamer profile to unlock quests and save high scores</p>
+      </div>
+
+      <div id="regAlert" class="alert"></div>
+
+      <form id="registrationForm" onsubmit="handleRegistrationSubmit(event)" novalidate>
+        <!-- Full Name -->
+        <div class="form-group">
+          <label class="form-label" for="regFullName">Full Name <span class="req">*</span></label>
+          <input 
+            type="text" 
+            id="regFullName" 
+            class="form-input" 
+            placeholder="e.g. Alex Johnson"
+            required
+          >
+          <div id="errFullName" class="input-feedback"></div>
+        </div>
+
+        <!-- Gamer Tag / Username -->
+        <div class="form-group">
+          <label class="form-label" for="regUsername">Gamer Tag / Username <span class="req">*</span></label>
+          <input 
+            type="text" 
+            id="regUsername" 
+            class="form-input" 
+            placeholder="e.g. QuackHero (min 4 characters)"
+            required
+          >
+          <div id="errUsername" class="input-feedback"></div>
+        </div>
+
+        <!-- Email Address -->
+        <div class="form-group">
+          <label class="form-label" for="regEmail">Email Address <span class="req">*</span></label>
+          <input 
+            type="email" 
+            id="regEmail" 
+            class="form-input" 
+            placeholder="e.g. alex@university.edu"
+            required
+          >
+          <div id="errEmail" class="input-feedback"></div>
+        </div>
+
+        <!-- Contact Phone Number -->
+        <div class="form-group">
+          <label class="form-label" for="regPhone">Contact Phone Number <span class="req">*</span></label>
+          <input 
+            type="tel" 
+            id="regPhone" 
+            class="form-input" 
+            placeholder="10-digit mobile number"
+            maxlength="10"
+            required
+          >
+          <div id="errPhone" class="input-feedback"></div>
+        </div>
+
+        <!-- Date of Birth & Gender Row -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label" for="regDob">Date of Birth <span class="req">*</span></label>
+            <input 
+              type="date" 
+              id="regDob" 
+              class="form-input" 
+              required
+            >
+            <div id="errDob" class="input-feedback"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Gender <span class="req">*</span></label>
+            <div class="radio-options">
+              <label class="radio-label"><input type="radio" name="gender" value="Male" checked> Male</label>
+              <label class="radio-label"><input type="radio" name="gender" value="Female"> Female</label>
+              <label class="radio-label"><input type="radio" name="gender" value="Other"> Other</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Favorite Game Genre -->
+        <div class="form-group">
+          <label class="form-label" for="regGenre">Preferred Gaming Category <span class="req">*</span></label>
+          <select id="regGenre" class="form-select" required>
+            <option value="">-- Choose Category --</option>
+            <option value="Arcade">Arcade / Target Shooting</option>
+            <option value="Puzzle">Puzzle & Memory Quests</option>
+            <option value="Racing">Speed Racing</option>
+            <option value="Action">Action / Zombie Survival</option>
+            <option value="Sci-Fi">Sci-Fi / Space Adventure</option>
+            <option value="RPG">Adventure / Castle Quest</option>
+          </select>
+          <div id="errGenre" class="input-feedback"></div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+          <label class="form-label" for="regPassword">Password <span class="req">*</span></label>
+          <input 
+            type="password" 
+            id="regPassword" 
+            class="form-input" 
+            placeholder="Min 6 characters with letters & numbers"
+            required
+          >
+          <div id="errPassword" class="input-feedback"></div>
+        </div>
+
+        <!-- Confirm Password Field -->
+        <div class="form-group">
+          <label class="form-label" for="regConfirmPassword">Confirm Password <span class="req">*</span></label>
+          <input 
+            type="password" 
+            id="regConfirmPassword" 
+            class="form-input" 
+            placeholder="Re-enter your password"
+            required
+          >
+          <div id="errConfirmPassword" class="input-feedback"></div>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="form-checkbox-group">
+          <input type="checkbox" id="regTerms">
+          <label for="regTerms">I agree to the Duck Gamer Rules and Fair Play Policies <span class="req">*</span></label>
+        </div>
+        <div id="errTerms" class="input-feedback" style="margin-top: -15px; margin-bottom: 15px;"></div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-submit">✨ Complete Registration</button>
+
+        <div class="form-footer">
+          Already registered? 
+          <a href="login.html">Sign In to Your Account</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 ADuckOnQuack Gaming Arcade. Built for Enterprise Web Programming Course Lab Experiments.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    function setFieldError(fieldId, errorElementId, message) {
+      const el = document.getElementById(fieldId);
+      const errEl = document.getElementById(errorElementId);
+      if (message) {
+        if (el) el.style.borderColor = "#ef4444";
+        if (errEl) {
+          errEl.className = "input-feedback error";
+          errEl.innerText = "❌ " + message;
+        }
+        return false;
+      } else {
+        if (el) el.style.borderColor = "#10b981";
+        if (errEl) {
+          errEl.className = "input-feedback valid";
+          errEl.innerText = "✓ Valid";
+        }
+        return true;
+      }
+    }
+
+    function handleRegistrationSubmit(event) {
+      event.preventDefault();
+      let isValid = true;
+
+      // 1. Full Name Validation
+      const fullName = document.getElementById("regFullName").value.trim();
+      if (!fullName || fullName.length < 3 || !/^[a-zA-Z\s]+$/.test(fullName)) {
+        isValid = setFieldError("regFullName", "errFullName", "Full name must be at least 3 letters (alphabetic only).") && isValid;
+      } else {
+        setFieldError("regFullName", "errFullName", "");
+      }
+
+      // 2. Username Validation
+      const username = document.getElementById("regUsername").value.trim();
+      if (!username || username.length < 4 || !/^[a-zA-Z0-9_]+$/.test(username)) {
+        isValid = setFieldError("regUsername", "errUsername", "Username must be at least 4 alphanumeric characters.") && isValid;
+      } else {
+        setFieldError("regUsername", "errUsername", "");
+      }
+
+      // 3. Email Validation
+      const email = document.getElementById("regEmail").value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
+        isValid = setFieldError("regEmail", "errEmail", "Please enter a valid email address.") && isValid;
+      } else {
+        setFieldError("regEmail", "errEmail", "");
+      }
+
+      // 4. Phone Validation (10 digits)
+      const phone = document.getElementById("regPhone").value.trim();
+      if (!phone || !/^\d{10}$/.test(phone)) {
+        isValid = setFieldError("regPhone", "errPhone", "Phone number must be exactly 10 numerical digits.") && isValid;
+      } else {
+        setFieldError("regPhone", "errPhone", "");
+      }
+
+      // 5. Date of Birth Validation
+      const dob = document.getElementById("regDob").value;
+      if (!dob) {
+        isValid = setFieldError("regDob", "errDob", "Please select your date of birth.") && isValid;
+      } else {
+        setFieldError("regDob", "errDob", "");
+      }
+
+      // 6. Preferred Genre Validation
+      const genre = document.getElementById("regGenre").value;
+      if (!genre) {
+        isValid = setFieldError("regGenre", "errGenre", "Please select a preferred gaming category.") && isValid;
+      } else {
+        setFieldError("regGenre", "errGenre", "");
+      }
+
+      // 7. Password Validation (min 6 characters, at least one letter and one number)
+      const password = document.getElementById("regPassword").value;
+      if (!password || password.length < 6 || !/(?=.*[a-zA-Z])(?=.*[0-9])/.test(password)) {
+        isValid = setFieldError("regPassword", "errPassword", "Password must be at least 6 characters with both letters & numbers.") && isValid;
+      } else {
+        setFieldError("regPassword", "errPassword", "");
+      }
+
+      // 8. Confirm Password Validation
+      const confirmPassword = document.getElementById("regConfirmPassword").value;
+      if (confirmPassword !== password) {
+        isValid = setFieldError("regConfirmPassword", "errConfirmPassword", "Passwords do not match.") && isValid;
+      } else {
+        setFieldError("regConfirmPassword", "errConfirmPassword", "");
+      }
+
+      // 9. Terms Checkbox
+      const terms = document.getElementById("regTerms").checked;
+      const termsErr = document.getElementById("errTerms");
+      if (!terms) {
+        termsErr.className = "input-feedback error";
+        termsErr.innerText = "❌ You must accept the terms and conditions.";
+        isValid = false;
+      } else {
+        termsErr.className = "input-feedback valid";
+        termsErr.innerText = "";
+      }
+
+      const alertBox = document.getElementById("regAlert");
+      if (!isValid) {
+        alertBox.className = "alert alert-danger";
+        alertBox.style.display = "block";
+        alertBox.innerText = "⚠️ Please fix the errors highlighted above before submitting.";
+        return;
+      }
+
+      // Save user profile locally
+      const storedUsers = JSON.parse(localStorage.getItem("duckRegisteredUsers") || "[]");
+      storedUsers.push({
+        fullName,
+        username,
+        email,
+        phone,
+        dob,
+        genre,
+        password
+      });
+      localStorage.setItem("duckRegisteredUsers", JSON.stringify(storedUsers));
+      localStorage.setItem("duckUser", username);
+
+      alertBox.className = "alert alert-success";
+      alertBox.style.display = "block";
+      alertBox.innerHTML = `🎉 Registration successful for <b>${username}</b>! Redirecting to login page...`;
+
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 1500);
+    }
+  </script>
+</body>
+</html>

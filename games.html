@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duck Game Collection - ADuckOnQuack</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">🦆</span>
+        <span class="brand-name">ADuckOnQuack</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="games.html" class="active">🎮 Games</a></li>
+        <li><a href="register.html">📝 Register</a></li>
+        <li><a href="login.html">🔑 Login</a></li>
+      </ul>
+      <div id="navUserDisplay" style="font-size: 0.9rem; color: #c4b5fd;"></div>
+    </div>
+  </header>
+
+  <!-- Main Game Catalogue (Matching Picture 1 Exactly) -->
+  <main class="main-content">
+    <div class="page-header">
+      <h1 class="page-title">🎮 Duck Game Collection</h1>
+      <p class="page-subtitle">Choose your favorite game!</p>
+    </div>
+
+    <!-- Top Row of 5 Game Cards -->
+    <div class="games-grid">
+      <!-- 1. Target Shooter -->
+      <div class="game-card">
+        <div class="game-title-wrapper">
+          <span class="game-icon">🎯</span>
+          <span>Target Shooter</span>
+        </div>
+        <button class="btn-play" onclick="launchGame('target-shooter')">Play Game</button>
+      </div>
+
+      <!-- 2. Puzzle Quest -->
+      <div class="game-card">
+        <div class="game-title-wrapper">
+          <span class="game-icon">🧩</span>
+          <span>Puzzle Quest</span>
+        </div>
+        <button class="btn-play" onclick="launchGame('puzzle-quest')">Play Game</button>
+      </div>
+
+      <!-- 3. Speed Racer -->
+      <div class="game-card">
+        <div class="game-title-wrapper">
+          <span class="game-icon">🏎️</span>
+          <span>Speed Racer</span>
+        </div>
+        <button class="btn-play" onclick="launchGame('speed-racer')">Play Game</button>
+      </div>
+
+      <!-- 4. Zombie Attack -->
+      <div class="game-card">
+        <div class="game-title-wrapper">
+          <span class="game-icon">🧟</span>
+          <span>Zombie Attack</span>
+        </div>
+        <button class="btn-play" onclick="launchGame('zombie-attack')">Play Game</button>
+      </div>
+
+      <!-- 5. Space Adventure -->
+      <div class="game-card">
+        <div class="game-title-wrapper">
+          <span class="game-icon">🚀</span>
+          <span>Space Adventure</span>
+        </div>
+        <button class="btn-play" onclick="launchGame('space-adventure')">Play Game</button>
+      </div>
+    </div>
+
+    <!-- Centered Bottom Row Game Card (Castle Quest) -->
+    <div class="games-grid-bottom">
+      <div class="game-card">
+        <div class="game-title-wrapper">
+          <span class="game-icon">🏰</span>
+          <span>Castle Quest</span>
+        </div>
+        <button class="btn-play" onclick="launchGame('castle-quest')">Play Game</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Interactive Playable Game Modal -->
+  <div class="modal-overlay" id="gameModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title" id="modalGameTitle">🎮 Game Title</div>
+        <button class="modal-close" onclick="closeGameModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalGameBody">
+        <!-- Injected Game Engine dynamically mounted here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 ADuckOnQuack Gaming Arcade. Built for Enterprise Web Programming Course Lab Experiments.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 12: Angular Components & Data Binding - ADuckOnQuack</title>
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    .angular-panel {
+      background: #140b30;
+      border: 1.5px solid #a855f7;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+    }
+    .binding-tag {
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: #7c3aed;
+      color: #ffffff;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../../index.html" class="brand">
+        <span class="brand-icon">🦆</span>
+        <span class="brand-name">ADuckOnQuack (Week 12)</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../week-10/index.html">Week 10</a></li>
+        <li><a href="../week-11/index.html">Week 11</a></li>
+        <li><a href="index.html" class="active">Week 12: Angular Components</a></li>
+        <li><a href="../week-13-14/index.html">Week 13-14: Angular SPA</a></li>
+        <li><a href="../index.html" class="lab-banner-link">← Lab Portal</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="page-header">
+      <h1 class="page-title">🅰️ Week 12: Angular Components, Data Binding & Directives</h1>
+      <p class="page-subtitle">Interactive demonstration of Interpolation {{}}, Property [], Event (), Two-Way [()], *ngIf, *ngFor & [ngSwitch]</p>
+    </div>
+
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <!-- Section 1: Data Binding (Interpolation, Property, Event, Two-Way) -->
+      <div class="angular-panel">
+        <span class="binding-tag">1. All 4 Forms of Angular Data Binding</span>
+        <h2 style="color:#ffffff; margin-bottom:12px;">Component: <code>&lt;game-card&gt;</code></h2>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <!-- Left: Bindings -->
+          <div>
+            <p style="color:#c4b5fd; margin-bottom:8px;">
+              <b>Interpolation <code>{{ '{' }}{{ '{' }} title {{ '}' }}{{ '}' }}</code>:</b><br>
+              <span id="interp_title" style="color:#c084fc; font-weight:bold;"></span>
+            </p>
+
+            <p style="color:#c4b5fd; margin-bottom:8px;">
+              <b>Interpolation <code>{{ '{' }}{{ '{' }} gamerTag {{ '}' }}{{ '}' }}</code>:</b><br>
+              <span id="interp_tag" style="color:#38bdf8; font-weight:bold;"></span>
+            </p>
+
+            <p style="color:#c4b5fd; margin-bottom:12px;">
+              <b>Interpolation <code>{{ '{' }}{{ '{' }} score {{ '}' }}{{ '}' }}</code>:</b><br>
+              <span id="interp_score" style="color:#34d399; font-size:1.4rem; font-weight:bold;"></span> pts
+            </p>
+
+            <div style="margin-top:10px;">
+              <label style="color:#e9d5ff; font-size:0.9rem; display:block; margin-bottom:4px;">
+                <b>Two-Way Binding <code>[(ngModel)]="gamerTag"</code>:</b>
+              </label>
+              <input type="text" id="twoway_input" class="form-input" style="max-width:300px;">
+            </div>
+          </div>
+
+          <!-- Right: Event & Property Binding -->
+          <div>
+            <p style="color:#c4b5fd; margin-bottom:10px;">
+              <b>Event Binding <code>(click)="onAddScore()"</code>:</b>
+            </p>
+            <div style="display:flex; gap:10px; margin-bottom:16px;">
+              <button class="btn-play" onclick="ngApp.onAddScore()">➕ (click)="onAddScore()" (+25)</button>
+              <button class="btn-secondary" onclick="ngApp.onResetScore()">🔄 Reset</button>
+            </div>
+
+            <p style="color:#c4b5fd; margin-bottom:10px;">
+              <b>Property Binding <code>[disabled]="isCardLocked"</code>:</b>
+            </p>
+            <div style="display:flex; gap:10px; align-items:center;">
+              <button class="btn-play" id="prop_bound_btn">Play</button>
+              <button class="btn-secondary" onclick="ngApp.toggleLock()">Toggle [disabled]</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Structural Directives (*ngIf, *ngFor, ngSwitch) -->
+      <div class="angular-panel">
+        <span class="binding-tag">2. Angular Structural Directives</span>
+        <h2 style="color:#ffffff; margin-bottom:16px;">Directives Demonstration</h2>
+
+        <!-- *ngIf -->
+        <div style="margin-bottom:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <b style="color:#c084fc;">Directive: <code>*ngIf="isVip"</code></b>
+            <button class="btn-secondary" style="padding:4px 12px; font-size:0.85rem;" onclick="ngApp.toggleVip()">Toggle isVip</button>
+          </div>
+          <div id="ngif_container"></div>
+        </div>
+
+        <!-- [ngSwitch] -->
+        <div style="margin-bottom:20px;">
+          <b style="color:#c084fc;">Directive: <code>[ngSwitch]="selectedDifficulty"</code></b>
+          <div style="display:flex; gap:10px; margin:8px 0;">
+            <button class="btn-secondary" style="padding:4px 10px;" onclick="ngApp.setDifficulty('Easy')">Easy</button>
+            <button class="btn-secondary" style="padding:4px 10px;" onclick="ngApp.setDifficulty('Normal')">Normal</button>
+            <button class="btn-secondary" style="padding:4px 10px;" onclick="ngApp.setDifficulty('Hard')">Hard</button>
+          </div>
+          <div id="ngswitch_container" style="background:#1c1145; padding:10px; border-radius:8px; color:#e9d5ff;"></div>
+        </div>
+
+        <!-- *ngFor -->
+        <div>
+          <b style="color:#c084fc;">Directive: <code>*ngFor="let g of gameList; let i = index"</code></b>
+          <table style="width:100%; border-collapse:collapse; margin-top:10px; background:#1c1145; border-radius:8px; overflow:hidden;">
+            <thead>
+              <tr style="background:#281452; color:#c4b5fd; text-align:left;">
+                <th style="padding:8px 12px;">Index</th>
+                <th style="padding:8px 12px;">Game</th>
+                <th style="padding:8px 12px;">Leaderboard High</th>
+                <th style="padding:8px 12px;">Status</th>
+              </tr>
+            </thead>
+            <tbody id="ngfor_tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section 3: Attribute Directives [ngStyle] and [ngClass] -->
+      <div class="angular-panel">
+        <span class="binding-tag">3. Attribute Directives [ngStyle] & [ngClass]</span>
+        <div id="attr_directive_box" style="font-weight:bold; padding:12px; border-radius:8px; background:#1b0f3d; border:1px solid #7c3aed;"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 ADuckOnQuack. Enterprise Web Programming - Week 12 Experiment.</p>
+  </footer>
+
+  <script src="components-demo.js"></script>
+</body>
+</html>

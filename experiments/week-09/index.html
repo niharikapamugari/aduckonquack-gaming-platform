@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 9: JSON & XML Response Parser - ADuckOnQuack</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../../index.html" class="brand">
+        <span class="brand-icon">🦆</span>
+        <span class="brand-name">ADuckOnQuack (Week 9)</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../week-07/index.html">Week 7</a></li>
+        <li><a href="../week-08/index.html">Week 8</a></li>
+        <li><a href="index.html" class="active">Week 9: JSON/XML Parser</a></li>
+        <li><a href="../week-10/index.html">Week 10</a></li>
+        <li><a href="../week-11/index.html">Week 11</a></li>
+        <li><a href="../index.html" class="lab-banner-link">← Lab Portal</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="page-header">
+      <h1 class="page-title">⚙️ Week 9: JSON & XML Response Data Parsing</h1>
+      <p class="page-subtitle">Fetch asynchronous data payloads and parse into dynamic UI components using modern JavaScript</p>
+    </div>
+
+    <div style="max-width: 950px; margin: 0 auto;">
+      <div style="display:flex; gap:16px; margin-bottom:20px; align-items:center; flex-wrap:wrap;">
+        <button class="btn-play" style="padding:10px 22px; background:#10b981;" onclick="fetchAndParseJSON()">
+          📦 Fetch & Parse JSON Response
+        </button>
+        <button class="btn-play" style="padding:10px 22px; background:#3b82f6;" onclick="fetchAndParseXML()">
+          📑 Fetch & Parse XML Response
+        </button>
+      </div>
+
+      <div id="parseMeta" style="margin-bottom:16px; color:#c4b5fd; display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
+        Select an action above to parse structured payload data.
+      </div>
+
+      <div id="parserOutput" style="min-height:300px;">
+        <div style="text-align:center; padding:50px; color:#c4b5fd; background:#140b30; border:1px dashed #7c3aed; border-radius:12px;">
+          <h3>Ready to Parse Asynchronous Data</h3>
+          <p>Click "Fetch & Parse JSON" to inspect parsed object cards or "Fetch & Parse XML" to inspect XML DOM table generation.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 ADuckOnQuack. Enterprise Web Programming - Week 9 Experiment.</p>
+  </footer>
+
+  <script src="ajax-parser.js"></script>
+</body>
+</html>

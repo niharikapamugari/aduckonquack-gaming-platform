@@ -1,0 +1,53 @@
+/* Week 5: Catalogue Page Custom CSS */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.filter-btn {
+  background: rgba(22, 12, 55, 0.8);
+  border: 1px solid #7c3aed;
+  color: #c4b5fd;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #7c3aed;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.6);
+}
+
+.search-box {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto 30px;
+  display: block;
+  padding: 12px 18px;
+  background: #140b30;
+  border: 1.5px solid #a855f7;
+  border-radius: 25px;
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+}
+
+.search-box:focus {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+  border-color: #c084fc;
+}
+
+.stats-counter {
+  text-align: center;
+  color: #c4b5fd;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}

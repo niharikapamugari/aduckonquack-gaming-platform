@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 1: Static Login Page - ADuckOnQuack</title>
+</head>
+<body>
+  <!-- =========================================================================
+       LAB EXPERIMENT 1: Static Web Pages (Login Page)
+       Aim: Develop static web pages required for a web site (Login Page).
+       ========================================================================= -->
+  <header>
+    <h1>🦆 ADuckOnQuack Web Arcade</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="../week-02/register.html">Registration (Week 2)</a></li>
+        <li><a href="../week-05/index.html">Catalogue (Week 5)</a></li>
+        <li><a href="../index.html">← Back to Lab Portal</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <hr>
+
+  <main>
+    <h2>Gamer Login Page</h2>
+    <p>Please enter your credentials to log in to the ADuckOnQuack arcade network.</p>
+
+    <form action="home.html" method="get">
+      <fieldset>
+        <legend>User Authentication</legend>
+        <p>
+          <label for="username">Username or Gamer Tag:</label><br>
+          <input type="text" id="username" name="username" placeholder="Enter username" required>
+        </p>
+        <p>
+          <label for="password">Password:</label><br>
+          <input type="password" id="password" name="password" placeholder="Enter password" required>
+        </p>
+        <p>
+          <input type="checkbox" id="remember" name="remember">
+          <label for="remember">Remember me on this browser</label>
+        </p>
+        <p>
+          <input type="submit" value="Log In">
+          <input type="reset" value="Reset Fields">
+        </p>
+      </fieldset>
+    </form>
+
+    <p>New to ADuckOnQuack? <a href="../week-02/register.html">Register a new student/gamer account here</a>.</p>
+  </main>
+
+  <hr>
+
+  <footer>
+    <p>&copy; 2026 ADuckOnQuack. Enterprise Web Programming - Week 1 Experiment.</p>
+  </footer>
+</body>
+</html>

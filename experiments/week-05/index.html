@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 5: Games Catalogue Page - ADuckOnQuack</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="catalogue.css">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../../index.html" class="brand">
+        <span class="brand-icon">🦆</span>
+        <span class="brand-name">ADuckOnQuack (Week 5)</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../week-01/home.html">Week 1</a></li>
+        <li><a href="../week-02/register.html">Week 2</a></li>
+        <li><a href="../week-03/index.html">Week 3</a></li>
+        <li><a href="../week-04/index.html">Week 4</a></li>
+        <li><a href="index.html" class="active">Week 5: Catalogue</a></li>
+        <li><a href="../week-06/viewer.html">Week 6</a></li>
+        <li><a href="../index.html" class="lab-banner-link">← Lab Portal</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="page-header">
+      <h1 class="page-title">🎮 Duck Game Collection Catalogue</h1>
+      <p class="page-subtitle">Interactive catalogue developed with HTML5, CSS3, and JavaScript</p>
+    </div>
+
+    <!-- Live Search Input -->
+    <input 
+      type="text" 
+      id="catalogSearch" 
+      class="search-box" 
+      placeholder="🔍 Search games by title or genre (e.g. Speed, Puzzle)..."
+    >
+
+    <!-- Genre Filter Buttons -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="setFilter('All', this)">All Games</button>
+      <button class="filter-btn" onclick="setFilter('Arcade', this)">🎯 Arcade</button>
+      <button class="filter-btn" onclick="setFilter('Puzzle', this)">🧩 Puzzle</button>
+      <button class="filter-btn" onclick="setFilter('Racing', this)">🏎️ Racing</button>
+      <button class="filter-btn" onclick="setFilter('Action', this)">🧟 Action</button>
+      <button class="filter-btn" onclick="setFilter('Sci-Fi', this)">🚀 Sci-Fi</button>
+      <button class="filter-btn" onclick="setFilter('RPG', this)">🏰 RPG</button>
+    </div>
+
+    <div class="stats-counter" id="resultCount">Loading games...</div>
+
+    <!-- Dynamic Catalogue Grid -->
+    <div class="games-grid" id="catalogGrid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
+      <!-- Injected via catalogue.js -->
+    </div>
+  </main>
+
+  <!-- Playable Game Modal -->
+  <div class="modal-overlay" id="gameModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title" id="modalGameTitle">🎮 Game Title</div>
+        <button class="modal-close" onclick="closeGameModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalGameBody"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 ADuckOnQuack. Enterprise Web Programming - Week 5 Experiment.</p>
+  </footer>
+
+  <script src="../../app.js"></script>
+  <script src="catalogue.js"></script>
+</body>
+</html>
